@@ -12,8 +12,8 @@ def custom_likelihood(x):
     # Define observables
     observables = [
         ('BR(Bs->mumu)', None),
-        ('<FL>(B0->K*mumu)', 1.1),
-        ('<P5p>(B0->K*mumu)', 1.1)
+        ('<FL>(B0->K*mumu)', np.linspace(0.1, 19, 20)),
+        ('<P5p>(B0->K*mumu)', np.linspace(0.1, 19, 20))
     ]
     
     # Calculate log-likelihood
