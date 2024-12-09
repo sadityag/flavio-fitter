@@ -18,20 +18,9 @@ fastlike.make_measurement()
 
 def custom_likelihood(params):
     C9, C10 = params
-    # Create the Wilson object as before
-    wc = wilson.Wilson(
-        {'C9_bsmumu': C9, 'C10_bsmumu': C10}, 
-        scale=4.8, 
-        eft='WET', 
-        basis='flavio'
-    )
-
-    # Instead of passing 'wc' directly, get the dictionary of WCs
-    wc_dict = wc.get_wc(basis='flavio', scale=4.8)
-
-    # Now pass this dictionary to log_likelihood
-    return -fastlike.log_likelihood(wc_dict, parameter_dict)
-
+    wc = wilson.Wilson({'C9_bsmumu': C9, 'C10_bsmumu': C10}, scale=4.8, eft='WET', basis='flavio')
+    parameter_dict = {}
+    return -fastlike.log_likelihood(wc, parameter_dict)
 
 space = [
     Real(-10, 10, name='C9'),
