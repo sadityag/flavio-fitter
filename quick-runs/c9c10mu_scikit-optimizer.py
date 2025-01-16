@@ -27,7 +27,7 @@ space = [
     Real(-10, 10, name='C10'),
 ]
 
-result = gp_minimize(custom_likelihood, space, n_calls=10, random_state=1)
+result = gp_minimize(custom_likelihood, space, n_calls=10, random_state=1, n_jobs=-1)
 
 print("Fitted C9:", result.x[0])
 print("Fitted C10:", result.x[1])
